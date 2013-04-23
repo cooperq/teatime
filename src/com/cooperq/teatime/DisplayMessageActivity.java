@@ -35,14 +35,15 @@ public class DisplayMessageActivity extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}
+	
 	@Override
 	protected void onResume(){
 		super.onResume();
         Intent intent = getIntent();
         int teaId = intent.getIntExtra(MainActivity.TEA_ID, 0);
 		startTimer(teaId);
-		raiseToast("resuming");
 	}
+	
 	protected void startTimer(int teaId){
 		//Building up a new intent to send to the notification
     	Intent intent2 = new Intent(this,DisplayMessageActivity.class);

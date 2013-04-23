@@ -19,18 +19,32 @@ public class TeaReadyActivity extends Activity {
         r.play();
 		setContentView(R.layout.activity_tea_ready);
 	}
-	
-	public void stopAlarm(View view){
-		Intent i = new Intent(this,MainActivity.class);
-		startActivity(i);
-		r.stop();
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.tea_ready, menu);
 		return true;
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+		r.stop();
+	}
+	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		Intent i = new Intent(this,MainActivity.class);
+		startActivity(i);
+		r.stop();
+	}
+	
+	public void stopAlarm(View view){
+		Intent i = new Intent(this,MainActivity.class);
+		startActivity(i);
+		r.stop();
 	}
 
 }
